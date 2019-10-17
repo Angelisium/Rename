@@ -14,4 +14,4 @@ Actuellement:
 "confirm <String>" => false pour ne pas avoir de confirmation a chaque fichier
 "del <Int>", "delete <Int>", "suppr <Int>" => Retire un fichier de la liste
 "reverse <Int1> <Int2>", "rvs <Int1> <Int2>" => échange la position de Int1 et Int2
-"move <Int1> <Int2>", "mve <Int1> <Int2>" => place Int1 devant Int2```
+"move <Int1> <Int2>", "mve <Int1> <Int2>" => place Int1 devant Int2
