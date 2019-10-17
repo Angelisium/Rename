@@ -41,6 +41,18 @@ def show(Action, Parametre= False):
  ###    ### ########## ###    #### ###     ### ###       ### ##########''')
 	elif Action == "help":
 		print('''Help''')
+def move(old, new):
+	global FILES
+	a= []
+	b= FILES[old]
+	del FILES[old]
+	c= 0
+	for f in FILES:
+		if c == new:
+			a.append(b)
+		a.append(FILES[c])
+		c+=1
+	FILES= a
 def rename():
 	global CONFIGURATION
 	global FILES
@@ -83,7 +95,7 @@ def manager():
 		show("header")
 		show("config")
 	elif Mots[0] in ("index", "idx"):
-		CONFIGURATION['index']= ('', toInt(Mots[1]))[len(Mots)>1]
+		CONFIGURATION['index']= (1, toInt(Mots[1]))[len(Mots)>1]
 		os.system("cls")
 		show("header")
 		show("config")
@@ -99,6 +111,11 @@ def manager():
 		a= toInt(Mots[1])
 		b= toInt(Mots[2])
 		FILES[a], FILES[b] = FILES[b], FILES[a]
+		show("liste")
+	elif Mots[0] in ("move", "mve") and len(Mots) > 2:
+		a= toInt(Mots[1])
+		b= toInt(Mots[2])
+		move(a,b)
 		show("liste")
 	manager()
 position= 1
