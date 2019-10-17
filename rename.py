@@ -41,12 +41,25 @@ def show(Action, Parametre= False):
  ###    ### ########## ###    #### ###     ### ###       ### ##########''')
 	elif Action == "help":
 		print('''Help''')
-def manager():
-	print('')
-	Mots= input().split(' ')
+def rename():
 	global CONFIGURATION
 	global FILES
-	
+	Index= CONFIGURATION['index']
+	for f in FILES:
+		path= "\\".join(f[0].split('\\')[0:-1])
+		Fichier= "{}{}{}{}.{}".format((path+'\\', '')[path == ''], CONFIGURATION['prefixe'], CONFIGURATION['suffixe'], toIndex(Index), f[1])
+		print("Renommage de `{}` en `{}`".format(f[0], Fichier))
+		if CONFIGURATION['confirmation'] == True:
+			Reponse= input("Continuer [O/N]? ").lower()
+			if Reponse == "n":
+				break
+		os.rename(f[0], Fichier)
+		print("fichier renomée !")
+		Index+=1
+def manager():
+	Mots= input().lower().split(' ')
+	global CONFIGURATION
+	global FILES
 	if Mots[0] in ("show", "view", "list"):
 		show("liste")
 	elif Mots[0] in ("help", "?", "aide"):
@@ -55,7 +68,7 @@ def manager():
 		os.system("cls")
 		show("header")
 	elif Mots[0] in ("run"):
-		print("run !!")
+		rename()
 	elif Mots[0] in ("exit", "bye"):
 		os.system("pause")
 		sys.exit()
@@ -94,7 +107,6 @@ for file in glob.glob('*'):
 	if extension in CONFIGURATION['extensions']:
 		FILES.append([file, extension])
 		position+= 1
-
 os.system("cls")
 os.system("color 09")
 show("header")
