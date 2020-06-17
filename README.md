@@ -1,6 +1,6 @@
 # Rename
 Script Python pour renomer rapidement les fichiers d'un dossier.
-Pour les question&suggestion https://discord.gg/aqYXZYE 
+Pour les question&suggestion https://discord.gg/8Qyg9Q7
 
 Actuellement:
 ```"show", "view", "list" => Affiche la liste des fichiers traiter par le script
