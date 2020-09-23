@@ -1,59 +1,58 @@
 # Rename
-Script Python pour renomer rapidement les fichiers d'un dossier.
-Pour les question&suggestion https://discord.gg/8Qyg9Q7
+Small python script to quickly rename files in a folder (with a customizable increment)
 
 ## Liste des commandes :
 ```
 aide
 ```
-Cette commande affiche l'aide (prochainement)
+This command displays help (coming soon)
 
 Alias : "help", "?"
 ```
 clear
 ```
-Cette commande vide la console.
+This command clears the console.
 
 Alias : "cls"
 ```
 show
 ```
-Cette commande affiche la liste des fichiers traité par le script.
+This command displays the list of files processed by the script.
 
 Alias : "view", "list"
 ```
-define clef<String> valeur<Int or String>(?)
+define key<String> value<Int or String>(?)
 ```
-Cette commande permet de redéfinir temporairement les variables de configuration. "clef" peut être : ``index``, ``prefixe``, ``suffixe`` ou ``confirmation``. Si "clef" est ``index`` alors "valeur" est requis et est un chiffre. Si "clef" est ``confirmation`` "valeur" doit être "True" sinon la confirmation sera défini à "False". Pour ``prefixe`` et ``suffixe`` "valeur" peut être omis / vide (attention, les caractères blancs sont pris en compte).
+This command allows you to temporarily redefine the configuration variables. "key" can be: ``index``, ``prefixe``, ``suffixe`` or ``confirmation``. If "key" is ``index`` so "value" is required and is a number. If "key" is ``confirmation`` "value" is "True" else confirmation will be set to "False". For ``prefixe`` and ``suffixe`` "value" can be omitted / empty (caution, white space are taken).
 
 Alias : "set"
 ```
 delete index<Int>
 ```
-Cette commande permet de supprimer le fichier situé à la position "index" indiqué.
+This command deletes the file located at the indicated "index" position.
 
 Alias : "suppr", "del"
 ```
-swap permier<Int> deuxieme<Int>
+swap first<Int> second<Int>
 ```
-Cette commande permet d'interchangé les positions des fichiers situé aux index "premier" et "deuxieme"
+This command interchange the positions of the files located at the "first" and "second" indexes
 
 Alias : "permute", "rotate", "echange"
 ```
-move element<Int> position<Int>
+move first<Int> second<Int>
 ```
-Cette commande permet de déplacer l'élément à la position "element" en position "position".
+This command moves the position of the file located at the "first" index to the "second" index
 
 Alias : "insert", "mv"
 
-## Modification dans le code
-Pour modifier en dure les variables, ligne 3 à 9:
+## Update variables in the code
+To modify the variables "definitely", line 3 to 9:
 ```python
 CONFIGURATION= {
-    'index': 1, #Nombre de départ pour l'incrémentation.
-    'prefixe': 'Épisode - ', #Texte qui s'affiche avant l'index
+    'index': 1, #Starting number for the increment.
+    'prefixe': 'Épisode - ', #Text that appears before the index
     'suffixe': '', #Texte qui s'affiche après l'index
-    'extensions': ('mp4', 'ogm', 'mkv', 'avi'), #Liste des formats de fichier pris en compte par le script
-    'confirmation': False #Si à True, une confirmation vous sera demandez avant de renommer un fichier
+    'extensions': ('mp4', 'ogm', 'mkv', 'avi'), #Text that appears after the index
+    'confirmation': False #If True, you will be asked for confirmation before renaming a file
 }
 ```
